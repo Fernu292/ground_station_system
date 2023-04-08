@@ -6,7 +6,8 @@ const createWindow = ()=>{
         height: 600
     });
 
-    window.loadFile("./public/index.html");
+    window.loadFile("./build/index.html");
+    window.setMenu(null);
 }
 
 app.whenReady().then( ()=>{
