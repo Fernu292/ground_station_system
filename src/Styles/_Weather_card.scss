@@ -1,0 +1,26 @@
+
+.Weather_card{
+    display:flex;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.4px);
+    -webkit-backdrop-filter: blur(9.4px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    flex-direction: column;
+    max-width: fit-content;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    height: 40rem;
+
+    img{
+        width: 15rem;
+        margin: 0;
+        object-fit: cover;
+    }
+
+    p{
+        margin: 0;
+    }
+}

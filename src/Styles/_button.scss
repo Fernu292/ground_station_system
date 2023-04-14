@@ -1,0 +1,29 @@
+
+
+.button{
+    margin: 2rem;
+    background-color: #264AAE;
+    font-weight: bold;
+    display: flex;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    color:white;
+    width: 10rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+
+
+    p{
+        margin: 0;
+        padding: 0;
+    }
+
+    &:hover{
+        cursor: pointer;
+        background-color: #734CA9;
+        transition: 0.5s;
+    }
+}

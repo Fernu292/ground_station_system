@@ -1,6 +1,8 @@
 const path = require('path');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     mode:"production",
@@ -11,6 +13,9 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".jsx"],
+    },
+    stats: {
+        warnings:false
     },
     module: {
         rules:[
@@ -38,7 +43,15 @@ module.exports = {
                         loader:"sass-loader"
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              }
         ]
     },
     plugins: [
@@ -49,6 +62,25 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: "assets/[name].css"
-        })
-    ]
+        }),
+        new CssMinimizerPlugin()
+    ],
+    optimization:{
+        minimize: true,
+        minimizer: [new TerserPlugin(), new CssMinimizerPlugin()]
+    },
+    devServer:{
+        static: {
+            directory: path.join(__dirname, "build"),
+        },
+        open:true,
+        compress: true,
+        port: 3000,
+        client:{
+            overlay:{
+                errors: true,
+                warnings: false
+            }
+        }
+    }
 }
