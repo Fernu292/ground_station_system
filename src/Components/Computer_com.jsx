@@ -23,7 +23,10 @@ const Computer_Com = ({progress, computer}) => {
     
     return (  
         <>
-            <h4>{computer} {value.toPrecision(2)}%</h4>
+            <div className='bar_Title'>
+                <h4>{computer}</h4>
+                <h4>{value.toPrecision(2)}%</h4>
+            </div>
             <LinearProgress 
                 variant='determinate' 
                 value={value} 

@@ -2,11 +2,10 @@
 .Comunications{
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 0 auto;
     padding: 1rem;
     gap: 2rem;
-    max-width: 90%;
-
+    width: 90%;
     h4{
         margin: 0;
         font-size: 2rem;
@@ -16,4 +15,9 @@
         border-radius: 1.5rem;
     }
     
+
+    .bar_Title{
+        display: flex;
+        justify-content: space-between;
+    }
 }
