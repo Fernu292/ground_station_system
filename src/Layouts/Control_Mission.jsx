@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "../styles/_Control_Mission.scss";
-//Layouts 
-import Header from "../Components/Header";
 
 //Componets
 import Chart_A from "../Components/Chart";
@@ -10,11 +8,24 @@ import Comunications_Computers from "../Components/Comunications";
 import Map from '../Components/GPS';
 
 import Bg_CM from "../img/Bg_CM.png";
+import { T_Context } from '../Context/T_Context';
 
 const Control_Mission = () => {
+    
+    const {cos} = useContext(T_Context);
+    
+    const sin = (angle)=>{
+        return Math.sin(((angle*100)*Math.PI)/180) 
+    }
+
     return (  
         <>
-            <Chart_A />
+            <h2 className='title_CM'>Mission Control</h2>
+            <Chart_A 
+                stimatedFunc={sin} 
+                recivedFunc={cos}
+                timeScale={240}
+            />
 
             <div className="mission_c_data">
 

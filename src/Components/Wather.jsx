@@ -19,18 +19,18 @@ const Weather = ({City, Country}) => {
     },[]);
 
     const {current, location} = weather;
-
-    console.log(current);
-    console.log(location);
     const condition = current?.condition;
     return (  
         <div className='Weather_card'>
             <img src={condition?.icon} alt='icon-img'/>
-            <h3>Weather in {City}</h3>
-            <p>Weather: {condition?.text}</p>
-            <p>Wind velocity: {current?.wind_kph} </p>
-            <p>Temperature: {current?.temp_c}°C</p>
-            <p>Preasure: {current?.pressure_in}</p>
+            <div className='weather-text'>
+                <h3>Weather in {City}</h3>
+                <p>Weather: {condition?.text}</p>
+                <p>Wind velocity: {current?.wind_kph} </p>
+                <p>Temperature: {current?.temp_c}°C</p>
+                <p>Preasure: {current?.pressure_in}</p>
+            </div>
+           
         </div>
     );
 }

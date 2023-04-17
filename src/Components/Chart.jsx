@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -21,11 +21,14 @@ ChartJS.register(
   Legend
 );
 
+import { T_Context } from '../Context/T_Context';
+
 
 
 const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorRecived})=>{
 
   const [dataR, setDataR] = useState([]);
+  const {timer, setDataT, dataT} = useContext(T_Context);
   const [options, setOptions] = useState({
     responsive: true,
     plugins: {
@@ -65,11 +68,13 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
 
   const labels = [];
 
-  for(let i=0;i<=240;i++){
+  for(let i=0;i<=timeScale;i++){
     labels.push(i/10);
   } 
 
   /*
+
+  //Graficar ambas funciones al tiempo
   let aux = [0];
 
   const [labels, setLabels] = useState([0]);
@@ -86,15 +91,12 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
   },[]);
   */
 
+  /*
   useEffect(()=>{
     let i = 1;
     const id = setInterval(()=>{
-      console.log(labels[i]);
       i++; 
-      setDataR(e=>[...e,Math.cos(((labels[i]*100)*Math.PI)/180) ]);
-
-
-      console.log('Data: ',dataR);
+      setDataR(e=>[...e,recivedFunc(labels[i])]);
       if(i>labels.length){
         i=0;
         setDataR([]);
@@ -104,26 +106,36 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
     return ()=>{
       clearInterval(id);
     }
-  },[]);
+  },[]);*/
 
+  useEffect(()=>{
+    setDataR(e=>[...e, recivedFunc(labels[timer])]);
+    setDataT(data=>[...data, recivedFunc(labels[timer])]);
+    
+    if(timer>=240){
+      setDataR([]);
+    }
+    
+  },[timer]);
+
+    
   const data = {
     labels,
     datasets: [
       {
         label: 'Stimated',
-        data: labels.map((e) => Math.sin(((e*100)*Math.PI)/180) ),
+        data: labels.map((e) => stimatedFunc(e) ),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Recived',
-        data: dataR,
+        data: dataT,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };
- 
 
   return(
     <Line options={options} data={data} height={30} width={90}/>
