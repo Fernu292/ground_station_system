@@ -7,24 +7,36 @@ import Weather from "../Components/Wather";
 import Comunications_Computers from "../Components/Comunications";
 import Map from '../Components/GPS';
 
-import Bg_CM from "../img/Bg_CM.png";
+import Bg_CM from "../img/Bg_CM.webp";
 import { T_Context } from '../Context/T_Context';
 
 const Control_Mission = () => {
     
-    const {cos} = useContext(T_Context);
+    const {
+        cos, 
+        sin, 
+        setTimeScale, 
+        timeScale,
+        dataTrayectory,
+        setDataTrayectory
+    } = useContext(T_Context);
     
-    const sin = (angle)=>{
-        return Math.sin(((angle*100)*Math.PI)/180) 
-    }
+   
+
+    setTimeScale(240);
 
     return (  
-        <>
-            <h2 className='title_CM'>Mission Control</h2>
+        <div id='Control_M' >
+            <h2 className='title_page '>Mission Control</h2>
             <Chart_A 
                 stimatedFunc={sin} 
                 recivedFunc={cos}
-                timeScale={240}
+                timeScale={timeScale}
+                height={8}
+                width={55}
+                dataSet={dataTrayectory}
+                setDataset={setDataTrayectory}
+                showLabel={true}
             />
 
             <div className="mission_c_data">
@@ -36,7 +48,7 @@ const Control_Mission = () => {
                 
                 <Map />
             </div>
-        </>
+        </div>
     );
 }
  

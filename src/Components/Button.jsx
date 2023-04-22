@@ -13,18 +13,21 @@ const Button = ({text}) => {
                 setControl(false);
                 setTelemetry(false);
                 setSystem(false);
+
                 break;
             case 'Mission C':
                 setMotors(false);
                 setControl(true);
                 setSystem(false);
                 setTelemetry(false);
+               
                 break;
             case 'System C':
                 setMotors(false);
                 setControl(false);
                 setSystem(true);
                 setTelemetry(false);
+
                 break;
             case 'Telemetry':
                 setMotors(false);

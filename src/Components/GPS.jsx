@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Mapa from "../img/Map_preview.png";
+import Mapa from "../img/Map_preview.webp";
 
 import "../Styles/_Map.scss";
 

@@ -1,0 +1,50 @@
+
+.telemetry_data{
+
+    display:grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+
+    margin-bottom: 1rem;
+
+    img{
+        display:flex;
+        object-fit: cover;
+        margin: 0 auto;
+        border-radius: 1.5rem;
+    }
+
+    .Rocket_Ansys{
+        height: 30rem;
+        width: 100%;
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+    }
+
+    .Alar_Ansys{
+        height: 15rem;
+        width: 100%;
+        align-self: center;
+    }
+}
+
+.graphs_T{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    align-self: center;
+    max-height: 100%;
+    canvas{
+        max-width: 20rem;
+        height: 100%;
+    }
+}
+
+.temp{
+    span{
+        rotate: -90deg;
+    }
+}

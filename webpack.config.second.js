@@ -6,9 +6,9 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
     mode:"production",
-    entry: "./src/index.js",
+    entry: "./src/second.js",
     output: {
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "build_second"),
         filename: "main.js"
     },
     resolve: {
@@ -60,9 +60,9 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: "./public/index.html",
+            template: "./public/second.html",
             inject:true,
-            filename:"index.html"
+            filename:"second.html"
         }),
         new MiniCssExtractPlugin({
             filename: "assets/[name].css"

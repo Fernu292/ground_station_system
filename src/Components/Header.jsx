@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './Logo';
 import Bandera_Mxn from "../img/Bandera_MXN.jpg";
-import Antares_logo from "../img/Antares_logo.png";
+import Antares_logo from "../img/antares final.png";
 import "../Styles/_Header.scss";
 import Button from './Button';
 

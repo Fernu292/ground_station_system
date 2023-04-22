@@ -7,6 +7,10 @@ html{
     color: white;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -15,4 +19,17 @@ body{
 .container{
     margin: 0 auto;
     max-width: 90%;
+}
+
+.title_page{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.hidden{
+    display: none;
+}
+
+.show{
+    display: contents;
 }

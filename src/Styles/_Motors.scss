@@ -1,0 +1,68 @@
+.Motor_Hero{
+
+    display: flex;
+    justify-content: space-around;
+
+    .title_Motor{
+        font-size: 3rem;
+        text-align: center;
+
+    }
+}
+
+.Motor_Content{
+    
+    span{
+        height: 3rem;
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+}
+
+.H_Cont{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 3rem;
+}
+
+.Fuel_Label{
+    display:flex;
+    justify-content: space-between;
+}
+
+.Status_M{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    align-self: center;
+    align-items: center;
+    justify-self: center;
+
+    a{
+        font-size: 1rem;
+    }
+}
+
+.Charts{
+    display: grid;
+    max-width: 50%;
+    width: 20rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 2rem;
+}
+
+.Charts_2{
+    display:grid;
+    width: 20rem;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 2rem;
+    margin-left: 10rem;
+}
+
+.Motor_C{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 3rem;
+}

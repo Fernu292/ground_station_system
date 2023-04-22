@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { LinearProgress } from '@mui/material';
+import { LinearProgress, sliderClasses } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
+
+
+
 
 const Computer_Com = ({progress, computer}) => {
     const[value, setValue] = useState(progress);
@@ -31,6 +35,7 @@ const Computer_Com = ({progress, computer}) => {
                 variant='determinate' 
                 value={value} 
                 color='success'
+                orientation="vertical"
             />
         </>
        

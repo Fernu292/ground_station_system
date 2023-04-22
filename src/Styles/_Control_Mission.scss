@@ -5,7 +5,8 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 0.5rem;
-    height: 40rem;
+    height: 10rem;
+    font-size: 1rem;
     .Weather_card{
         grid-row-start: 1;
         grid-row-end: 3;
@@ -17,12 +18,9 @@
         position: absolute;
         z-index: -1;
         width: 100%;
-        height: auto;
+        height: 40rem;
+        object-fit: cover;
         left: 0;
     }
 }
 
-.title_CM{
-    font-size: 2rem;
-    text-align: center;
-}

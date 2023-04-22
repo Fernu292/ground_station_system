@@ -25,18 +25,37 @@ import { T_Context } from '../Context/T_Context';
 
 
 
-const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorRecived})=>{
+const Chart_A = (
+  {stimatedFunc, 
+    recivedFunc, 
+    timeScale, 
+    colorStimated, 
+    colorRecived, 
+    width, 
+    height, 
+    sizeFont,
+    dataSet,
+    setDataset,
+    showLabel
+  
+  })=>{
 
-  const [dataR, setDataR] = useState([]);
-  const {timer, setDataT, dataT} = useContext(T_Context);
+
+  const {timer} = useContext(T_Context);
   const [options, setOptions] = useState({
     responsive: true,
     plugins: {
       legend: {
         position: 'top',
+        display:showLabel,
+        labels:{
+          font:{
+            size:sizeFont
+          }
+        }
       },
       title: {
-        display: true,
+        display: showLabel,
         text: 'Trayectory plot',
       },
     },
@@ -62,7 +81,7 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
       easing:'easeOutExpo',
       loop:false,
 
-      from: dataR[dataR.length-1]
+      from: dataSet[dataSet.length-1]
     }
   });
 
@@ -109,13 +128,10 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
   },[]);*/
 
   useEffect(()=>{
-    setDataR(e=>[...e, recivedFunc(labels[timer])]);
-    setDataT(data=>[...data, recivedFunc(labels[timer])]);
-    
-    if(timer>=240){
-      setDataR([]);
+
+    if(timer>=0){
+      setDataset(data=>[...data, recivedFunc(labels[timer])]);   
     }
-    
   },[timer]);
 
     
@@ -130,7 +146,7 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
       },
       {
         label: 'Recived',
-        data: dataT,
+        data: dataSet,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
@@ -138,7 +154,7 @@ const Chart_A = ({stimatedFunc, recivedFunc, timeScale, colorStimated, colorReci
   };
 
   return(
-    <Line options={options} data={data} height={30} width={90}/>
+    <Line options={options} data={data} height={height} width={width}/>
   );
 }
 

@@ -4,7 +4,7 @@ const {execSync} = require("child_process");
 const output = execSync('npm run build_react', {encoding: 'utf-8'});
 
 
-const createWindow = ()=>{
+const createWindow = (file)=>{
     const window = new BrowserWindow( {
         width: 1200,
         height: 1080
@@ -22,10 +22,13 @@ const createWindow = ()=>{
         window.reload();
     })
 
-    window.loadFile("./build/index.html");
+    window.loadFile(file);
     window.setMenu(null);
 }
 
+
+
 app.whenReady().then( ()=>{
-    createWindow();
+    createWindow("./build/index.html");
+    createWindow("./build_second/second.html");
 });

@@ -5,9 +5,9 @@
     background-color: #264AAE;
     font-weight: bold;
     display: flex;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 2rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color:white;
     width: 10rem;
     text-align: center;
@@ -26,4 +26,16 @@
         background-color: #734CA9;
         transition: 0.5s;
     }
+}
+
+.button_signal{
+    background-color: gray;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+
+}
+
+.Action{
+    background-color: green;
 }
